@@ -7,7 +7,7 @@ def get_time(user):
     content = {}
     with open(f"{user}.json", "r") as json_file:
         content = load(json_file)
-    
+
     total = timedelta()
     for raw_data in content.values():
         print(raw_data)

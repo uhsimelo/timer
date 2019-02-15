@@ -19,7 +19,7 @@ def save_time(user, time_init, elapsed):
     if isinstance(elapsed, int):
         elapsed = f"{elapsed // 60}:{elapsed % 60}"
 
-    date_formatted = time_init.strftime("%d %b %Y, %I:%M:%S")    
+    date_formatted = time_init.strftime("%d %b %Y, %I:%M:%S")
     print(date_formatted)
     print(elapsed)
     cur_info["datetime"] = date_formatted
@@ -60,7 +60,7 @@ class Chronometer:
         if not self.is_running:
             # log(1, f"is stopped...")
             return
-        self.is_running = False        
+        self.is_running = False
         self.cur_stop = datetime.today()
 
         if self.elapsed.seconds // 60 > 0:
@@ -86,8 +86,8 @@ def show_state(chrono : Chronometer):
 
 def main(user):
     answer = None
-    chrono = Chronometer(user) 
-    
+    chrono = Chronometer(user)
+
     chrono.start()
     print("\nCHRONO is running...")
     print("\n CHRONO ->\nr : to resume.\nc : to stop.\np : to pause.\n")
@@ -101,7 +101,7 @@ def main(user):
         elif answer is 'r':
             chrono.resume()
         print(f"Time: {chrono.elapsed}")
-    
+
     print(f"Time: {chrono.elapsed}")
     chrono.stop()
 
