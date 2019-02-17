@@ -100,7 +100,7 @@ def main(user):
             chrono.stop()
         elif answer is 'r':
             chrono.resume()
-        print(f"Time: {chrono.elapsed}")
+        show_state(chrono)
 
     print(f"Time: {chrono.elapsed}")
     chrono.stop()
