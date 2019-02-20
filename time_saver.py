@@ -1,6 +1,6 @@
 import sys
 import os
-from json import dump, dumps, load, loads
+from json import dump, load
 from datetime import datetime, time, timedelta
 
 path_prefix = "times/"
@@ -89,7 +89,7 @@ def main(user):
             chrono.stop()
         elif answer is 'r':
             chrono.resume()
-        print(f"Time: {chrono.elapsed}")
+        show_state(chrono)
 
     print(f"Time: {chrono.elapsed}")
     chrono.stop()

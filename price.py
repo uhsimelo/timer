@@ -1,9 +1,26 @@
 import os
 import sys
 from json import load, dump
-from datetime import timedelta
+from datetime import timedelta,datetime
 
 path_prefix = "times/"
+
+def delete_olds():
+    now = datetime.today()
+    for t_file in (direct for direct in os.listdir("./times") if direct.endswith(".json")):
+        content = {}
+
+        with open(f"{path_prefix}{t_file}",'r') as json_file:
+            content = load(json_file)
+
+        with open(f"{path_prefix}{t_file}", 'w') as json_file:
+            nw_content = {}
+            for i in content:
+                print(datetime.strptime(content[i]['datetime'], "%d %b %Y, %I:%M:%S"),now - timedelta(days=30))
+                if datetime.strptime(content[i]['datetime'], "%d %b %Y, %I:%M:%S") >= now - timedelta(days=30):
+                    nw_content[i] = content[i]
+            dump(nw_content, json_file, indent=4)
+
 
 def get_time(user):
     content = {}
@@ -22,8 +39,8 @@ def get_time(user):
     return t_hou, t_min % 60
 
 
-def main():
-    # os.chdir("/times")
+def main():    
+    delete_olds()
 
     per_hour = float(sys.argv[1]) if len(sys.argv) > 1 else 2
     accums = {}
@@ -40,9 +57,8 @@ def main():
     for user in users:
         t = get_time(user)
         accums[user] = (f'{t[0]}:{t[1]}', f"${(t[0] * per_hour + t[1] * per_hour / 60)}")
-
-    for us in accums:
-        print(f"{us} ---> {accums[us]}")
+    for user in accums:
+        print(user, accums[user])
 
 
 if __name__ == "__main__":
