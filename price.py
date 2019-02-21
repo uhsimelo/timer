@@ -48,17 +48,17 @@ def get_time(user):
 
     total = timedelta()
     for raw_data in content.values():
-        print(raw_data)
         h, m, _ = list(map(int, raw_data["elapsed"].split(':')))
         total += timedelta(minutes=m, hours=h)
+    
     t_min = total.seconds // 60
     t_hou = t_min // 60
-
-    return t_hou, t_min % 60
+    t_day = total.days * 24
+    return t_hou + t_day, t_min % 60
 
 
 def main():    
-    delete_olds()
+    # delete_olds()
 
     per_hour = float(sys.argv[1]) if len(sys.argv) > 1 else 2
     accums = {}

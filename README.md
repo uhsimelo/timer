@@ -27,19 +27,21 @@ The times are stored in `times\<user-name>.json` and their structure is the next
     },
     "-2040455496698083750": {
         "datetime": "14 Feb 2018, 06:57:32",
-        "elapsed": "0:50"
+        "elapsed": "0:50:23"
     },
     //...
 }
 ```
 About the implementation, for every time you pause it to continue later or stop it the time elapsed will be stored if and only if your time elapsed exceeds the minute.
 ### For Money-givers
-To know the times and payments you have to run **price.py** as follows:
+To know the times and payments for the last 30 days you have to run **price.py** as follows:
 ```bash
 python price.py <per-hour> ["user-name"]
 ```
-- **per-hour**: payment per hour.
+- **per-hour**: payment per hour(default=2).
 - **user-name**: an specific user-name or it can be omitted to calculate it to everyone in the `\times` folder.
+
+The result of run create an json file in `\payments\payment-[today's date].json`.
 
 ### To the next version:
 Another script `plot_time.py` also can show the performance of workers ,located in the times folder, on a graph. And is used as follows, without arguments:
