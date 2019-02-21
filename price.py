@@ -3,7 +3,21 @@ import sys
 from json import load, dump
 from datetime import timedelta,datetime
 
-path_prefix = "times/"
+def get_platform():
+    platforms = {
+        'linux1' : 'Linux',
+        'linux2' : 'Linux',
+        'darwin' : 'OS X',
+        'win32' : 'Windows'
+    }
+    print(sys.platform)
+
+    if sys.platform not in platforms:
+        return sys.platform
+    
+    return platforms[sys.platform]
+
+path_prefix = "times/" if get_platform() != 'Windows' else r"times\\"
 
 def delete_olds():
     now = datetime.today()
