@@ -7,6 +7,22 @@ path_prefix = "times/" if sys.platform != 'Win32' else r"times\\"
 path_payments_prefix = "payments/" if sys.platform != 'Win32' else r"payments\\"
 
 
+def save_payments(users_data, time_init):
+    content = {}
+    date = time_init.strftime("%d.%b.%Y")
+    for user in users_data:
+        cur_info = {}
+
+        cur_info["payment"] = users_data[user][1]
+        cur_info["time-lapsed"] = users_data[user][0]
+        cur_info["date"] = date.replace('.',' ',3)
+
+        content[user] = cur_info
+
+    with open(f"{path_payments_prefix}payment-{date}.json",'w') as json_file:
+        dump(content, json_file, indent=4)
+
+
 def delete_olds():
     now = datetime.today()
     for t_file in (direct for direct in os.listdir("times") if direct.endswith(".json")):
@@ -60,7 +76,7 @@ def main():
         t = get_time(user)
         accums[user] = (f'{t[0]}:{t[1]}', f"${(t[0] * per_hour + t[1] * per_hour / 60)}")
     
-    # save_payments(accums,datetime.today())
+    save_payments(accums, datetime.today())
     for user in accums:
         print(user, accums[user])
 
