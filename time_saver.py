@@ -3,7 +3,7 @@ import os
 from json import dump, load
 from datetime import datetime, time, timedelta
 
-path_prefix = "times/"
+path_prefix = "times/" if sys.platform != 'Win32' else r"times\\"
 
 def format_timedelta(timed: timedelta):
     _minutes = timed.seconds // 60
@@ -64,11 +64,6 @@ class Chronometer:
             return datetime.today() - self.cur_start
         return self.cur_stop - self.cur_start
 
-
-def prepare_env():
-    if not os.path.exists("times"):
-        os.mkdir("times")
-    os.chdir(".\\times")
 
 def show_state(chrono : Chronometer):
     print(f"Time: {chrono.elapsed}")
