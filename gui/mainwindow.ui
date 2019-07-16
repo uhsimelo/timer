@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TimerWindow</class>
+ <widget class="QMainWindow" name="TimerWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>475</width>
+    <height>290</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>336</width>
+    <height>222</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>475</width>
+    <height>290</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Monospace</family>
+    <pointsize>11</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Timer</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>statics/clock_select.png</normaloff>statics/clock_select.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLCDNumber" name="lcdNumber_hours">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="digitCount">
+         <number>2</number>
+        </property>
+        <property name="intValue" stdset="0">
+         <number>-1</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="Line" name="line">
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="lineWidth">
+         <number>4</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLCDNumber" name="lcdNumber_minutes">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
+        <property name="digitCount">
+         <number>2</number>
+        </property>
+        <property name="intValue" stdset="0">
+         <number>-1</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="Line" name="line2">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="lineWidth">
+         <number>4</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLCDNumber" name="lcdNumber_seconds">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
+        <property name="digitCount">
+         <number>2</number>
+        </property>
+        <property name="intValue" stdset="0">
+         <number>-1</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>80</height>
+       </size>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>2</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <property name="spacing">
+        <number>2</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="groupBox_earning">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string>Earning ($)</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <property name="leftMargin">
+           <number>2</number>
+          </property>
+          <property name="topMargin">
+           <number>2</number>
+          </property>
+          <property name="rightMargin">
+           <number>2</number>
+          </property>
+          <property name="bottomMargin">
+           <number>2</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLCDNumber" name="lcdNumber_earning">
+            <property name="digitCount">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QGroupBox" name="groupBox_all_month">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string>All-Month ($)</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <property name="leftMargin">
+           <number>2</number>
+          </property>
+          <property name="topMargin">
+           <number>2</number>
+          </property>
+          <property name="rightMargin">
+           <number>2</number>
+          </property>
+          <property name="bottomMargin">
+           <number>2</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLCDNumber" name="lcdNumber_all_month">
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <property name="smallDecimalPoint">
+             <bool>false</bool>
+            </property>
+            <property name="digitCount">
+             <number>10</number>
+            </property>
+            <property name="value" stdset="0">
+             <double>1.200000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>199</height>
+    </size>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_playpause"/>
+   <addaction name="separator"/>
+   <addaction name="action_stop"/>
+   <addaction name="separator"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="action_playpause">
+   <property name="icon">
+    <iconset>
+     <normalon>statics/play.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>PlayPause</string>
+   </property>
+   <property name="shortcut">
+    <string>F5, Space, Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="action_stop">
+   <property name="icon">
+    <iconset>
+     <normaloff>statics/stop.png</normaloff>statics/stop.png</iconset>
+   </property>
+   <property name="text">
+    <string>Stop</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C, Esc</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
