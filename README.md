@@ -6,8 +6,7 @@ Those scripts are for helping in a particular way to the team workers and the mo
 
 -------------------------
 ## Requirements
-1. python3. * must be installed 
-2. Linux system
+1. python3. * must be installed
 
 # Instructions
 
