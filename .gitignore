@@ -4,3 +4,8 @@
 *.dir
 times/
 payments/
+*__pycache__*
+*dist/
+*build/
+core/unused
+WorkTime.*
